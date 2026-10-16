@@ -1,8 +1,30 @@
+controller.player2.onEvent(ControllerEvent.Connected, function () {
+    mySprite = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f . f . f f . . . . . 
+        . . . . . f f . f . f . . . . . 
+        . . . . . f . f f . f . . . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . . . . f . . . . . . . 
+        . . . . . . f f f f f . . . . . 
+        . . . . . f . . f . . f . . . . 
+        . . . . . . . . f . . . . . . . 
+        . . . . . . . f . f . . . . . . 
+        . . . . . . f . . . f . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    controller.moveSprite(mySprite)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     pizza.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
     info.startCountdown(3)
 })
+let mySprite: Sprite = null
 let pizza: Sprite = null
 scene.setBackgroundColor(13)
 let inesita = sprites.create(img`
